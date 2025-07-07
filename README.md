@@ -158,18 +158,6 @@ See branch `gemini-demo` (merged)
 > - Custom Tooltips: Customize the look and content of the tooltips for a richer user experience.
 > - Loading & Error States: Show a loading spinner while fetching data and an error message if the API call fails.
 
-### Why AI Coding Assistants Struggle
-
-My developer experience with JetBrains AI, Copilot, and Windsurf seems to be very common and highlights the current limitations of AI code assistants, especially when dealing with real-world, complex development scenarios. LLMs are powerful pattern matchers, but they struggle with deep contextual understanding in the way a human developer does. They don't inherently understand business logic, architectural decisions made years ago, or the implicit knowledge of developer teams or communities. Global variables, hooks and actions might be too implicit to understand. Global CSS is notoriously difficult for even humans to manage because changes in one place can have unintended side effects everywhere. An AI sees a CSS rule but doesn't "know" which parts of the HTML it's supposed to affect or what the intended visual outcome is.
-
-Even tools like Windsurf that aim for "project-wide understanding" still rely on techniques like embedding and retrieval that can miss crucial nuances in a messy, older codebase.
-
-Modern TypeScript applications, especially those built with frameworks like React, Angular, or Vue, tend to be more modular, use clear component structures, and follow more consistent patterns (e.g., explicit imports, type definitions). This structure makes it much easier for an AI to parse, understand relationships, and generate coherent code. The code is often "cleaner" and closer to the patterns the AI was heavily trained on.
-
-Copilot and Windsurf generating "faulty code which is hard to fix" is a direct result of overconfidently not knowing what they don't know. The AI might provide a syntactically correct snippet, but it doesn't fit the actual logic, it uses non-existent methods (hallucinations), or it introduces subtle bugs because it misinterpreted the intent or the wider system. Current AI assistants primarily operate on static code. They don't run the code, observe its behavior, or interact with a debugger. They can't see stack traces, variable values at runtime, or how data flows through a live application.
-
-AI models are only as good as the data they're trained on. If the training data contains problematic, outdated, or insecure code, the AI might perpetuate those issues. Public codebases, while vast, also contain a lot of imperfect code.
-
 ### Jetbrains AI
 
 Jetbrains AI can generate unit tests and find problems in existing code. It is supposed to help understand complex code sections and generate documentation.
@@ -180,13 +168,32 @@ TODO
 
 ### Tutorials
 
-after reading and watching tutorials and playing with the AI-generated code above,
-this is the demo code created by a software developer in `human-demo`. To be fair, Gemini's commented step-by-step instructions were my first ReCharts tutorial, and I can't empty my mind or travel back in time to compare.
+After reading and watching tutorials and playing with the AI-generated code above,
+this is the demo code created by a software developer in `human-demo`. To be fair, Gemini's commented step-by-step instructions were my first ReCharts tutorial, and I can't empty my mind or travel back in time to compare. But I've got questions and concerns.
+
+- Verify load time and accessibility using aXe/WAVE, Lighthouse, and keyboard navigation!
+- Verify responsive web design, add responsive container if necessary!
+- Hosting options for a related client project?
+- Accessible animation options?
+- Any other ideas for "interactivity"?
+- Explore Charting Options like pie charts, tree maps, what else?
 
 However, I have consulted other tutorials and documentations, like
 
-- ...
-- ...
+- https://refine.dev/blog/recharts/#how-to-make-recharts-responsive-for-different-screen-sizes
+- AI: https://dev.to/googleai/from-prompt-to-deployed-app-in-less-than-2-minutes-dh3
+
+### Synopsis, Synergies, Takeaways (so far)
+
+How do the generated examples differ?
+What can we learn about different strategies?
+What happens when we merge all branches? But why should we merge broken code that doesn't pass our quality guidelines?
+
+What is left of the different approaches?
+What are practices and common pitfalls?
+Jetbrains AI's "find problems" action tell us?
+
+TODO
 
 ### Synopsis, Synergies, Takeaways (so far)
 
@@ -264,7 +271,37 @@ Scalability/Responsiveness: Charts should remain readable and usable when zoomed
 
 ## Conclusion
 
-...
+We have verified that ReCharts can be used quickly, and Google AI served as a tutorial replacement, while Copilot wasted useless time.
+
+### AI on AI
+
+Final words and explanations, quoted and praphrased from Google Gemini:
+
+#### Why AI Coding Assistants Struggle
+
+My developer experience with JetBrains AI, Copilot, and Windsurf seems to be very common and highlights the current limitations of AI code assistants, especially when dealing with real-world, complex development scenarios. LLMs are powerful pattern matchers, but they struggle with deep contextual understanding in the way a human developer does. They don't inherently understand business logic, architectural decisions made years ago, or the implicit knowledge of developer teams or communities. Global variables, hooks and actions might be too implicit to understand. Global CSS is notoriously difficult for even humans to manage because changes in one place can have unintended side effects everywhere. An AI sees a CSS rule but doesn't "know" which parts of the HTML it's supposed to affect or what the intended visual outcome is.
+
+Even tools like Windsurf that aim for "project-wide understanding" still rely on techniques like embedding and retrieval that can miss crucial nuances in a messy, older codebase.
+
+Modern TypeScript applications, especially those built with frameworks like React, Angular, or Vue, tend to be more modular, use clear component structures, and follow more consistent patterns (e.g., explicit imports, type definitions). This structure makes it much easier for an AI to parse, understand relationships, and generate coherent code. The code is often "cleaner" and closer to the patterns the AI was heavily trained on.
+
+Copilot and Windsurf generating "faulty code which is hard to fix" is a direct result of overconfidently not knowing what they don't know. The AI might provide a syntactically correct snippet, but it doesn't fit the actual logic, it uses non-existent methods (hallucinations), or it introduces subtle bugs because it misinterpreted the intent or the wider system. Current AI assistants primarily operate on static code. They don't run the code, observe its behavior, or interact with a debugger. They can't see stack traces, variable values at runtime, or how data flows through a live application.
+
+AI models are only as good as the data they're trained on. If the training data contains problematic, outdated, or insecure code, the AI might perpetuate those issues. Public codebases, while vast, also contain a lot of imperfect code.
+
+#### Why Google AI Studio did not Code, but Teach
+
+Google AI Studio can both provide "step-by-step do-it-yourself instructions" and perform "agent-like" code generation. However, both options are offered as different types of tools, both powered by Google's AI, but designed for different tasks:
+- Google AI Studio (your prompt) acted as a knowledgeable tutor.
+- Project IDX (the dev.to article), now known as Firebase Studio, acted as an agent-like code generator.
+
+Based on the article "From Prompt to Deployed App in Less Than 2 Minutes," Google AI Studio's Code Assistant, powered by Gemini 2.5, outlines a step-by-step plan for designing and developing an AI-enabled application. This plan details the approach, including analyzing concepts, refining input, and outlining API integrations. After this planning phase, the Code Assistant automatically generates a structured web application project and even performs automated error correction without user intervention. This automated generation and error correction aligns with the "agent-like" behavior, where the AI is actively creating and refining the code.
+
+Firebase Studio (formerly Project IDX) is an online integrated development environment (IDE) developed by Google. It's cloud-based and designed to help developers build multiplatform applications with AI assistance. It's built on Visual Studio Code (Code OSS), so it should feel familiar to many developers.
+
+- https://gemini.google.com/ #  (Google Gemini - The Conversational AI)
+- https://aistudio.google.com/ # (Google AI Studio - The Prompt Engineering and Model Prototyping Platform)
+- https://studio.firebase.google.com (IDX or Firebase Studio - The AI-Powered Cloud IDE)
 
 ## Appendix: Vite + React Scaffold Documentation Expanding the ESLint configuration
 
