@@ -193,6 +193,9 @@ What is left of the different approaches?
 What are practices and common pitfalls?
 Jetbrains AI's "find problems" action tell us?
 
+TODO: Jetbrains AI usage
+
+Inline chat, which is allowed to modify code directly, is called "generate code ..." as a context action. How to make it apply the code that was previously suggested in a "find problems" context action that generated lengthy answers in the chat window, so verbose that it scrolled down too quickly to read? How to make inline code generator produce the same code quality as the find problems chat action?
 TODO
 
 ### Synopsis, Synergies, Takeaways (so far)
