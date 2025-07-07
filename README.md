@@ -144,7 +144,12 @@ See branch `gemini-demo`:
 ### Tutorials
 
 after reading and watching tutorials and playing with the AI-generated code above,
-this is the demo code created by a software developer in `human-demo`.
+this is the demo code created by a software developer in `human-demo`. To be fair, Gemini's commented step-by-step instructions were my first ReCharts tutorial, and I can't empty my mind or travel back in time to compare.
+
+However, I have consulted other tutorials and documentations, like
+
+- ...
+- ...
 
 ### Synopsis, Synergies, Takeaways (so far)
 
@@ -186,6 +191,37 @@ Cypress is a great choice for end-to-end (E2E) testing in React projects. It all
 Cypress is highly focused on web application testing and debugging. Cypress tests are written exclusively in JavaScript or TypeScript. Playwright supports all modern browser rendering engines on Windows, Linux, and macOS. Playwright has robust, built-in support for parallel test execution across multiple browsers, contexts, or even worker processes, significantly speeding up test suites. Cypress is renowned for its excellent developer experience. It offers a live, interactive test runner, real-time reloading, automatic waiting, and time-travel debugging.
 
 Conclusion: no need for Playwright unless we need cross-browser testing.
+
+### Stack Decisions Recap
+
+When I had researched suitable, simple charting solutions, ReCharts seemed a clear recommendation. What were possible alternatives?
+
+ReCharts is a component-based charting library built specifically for React and its declarative nature. Built on top of D3.js internally, ReCharts abstracts away the complexities of D3.
+
+#### ReCharts vs. Refine
+
+You absolutely should use Recharts with TypeScript if you're building a React application where type safety, maintainability, and developer experience are important. Recharts provides its own type definitions, no need to install a separate types package. Your IDE will provide correct autocompletion for ReCharts components.
+
+#### ReCharts vs. HighCharts
+
+ReCharts components are simple, declarative, and highly composable, allowing you to mix and match different chart elements easily to create custom visualizations.
+
+ReCharts is open-source and completely free to use for any project, commercial or personal, under the MIT license.
+
+HighCharts allows for more customization for highly specialized charts, and it does not depend on React. Due to its vast feature set, Highcharts can have a larger bundle size compared to more focused libraries. Highcharts is not free for commercial use. You need to purchase a commercial license, which can be a significant cost for businesses.
+
+Highcharts provides robust keyboard navigation for charts out-of-the-box when the accessibility module (`accessibility.js`) is enabled. Highcharts automatically adds appropriate ARIA (Accessible Rich Internet Applications) roles and attributes to the SVG elements of the chart. The accessibility module can automatically generate a basic text description of the chart, including its type, axes, and series, which can be modified by developers. Highcharts generally has built-in support for operating system high contrast modes and handles zooming and responsiveness well. Highcharts offers a cutting-edge sonification module ("Audio Charts") that allows users to experience data as sound.
+
+#### ReCharts Performance, Speed, Accessibility, and Cross-Browser Compatibility
+
+Recharts is generally good enough for modern browsers and can achieve WCAG compliance, but with some important caveats and considerations, especially for performance and accessibility. Like any SVG-based charting library, Recharts can face performance bottlenecks when dealing with very large datasets (tens of thousands or hundreds of thousands of data points or more). Prevent unnecessary re-renders of chart components and data transformations and use memoization `React.memo, useMemo` to improve performance. Disabling animations (`isAnimationActive={false}`) can significantly improve performance.  If possible, aggregate data on the server-side before sending it to the frontend. For real-time or frequently updating data, control the update rate using debouncing/throttling.
+
+ReCharts is not fully accessible out-of-the-box! While Recharts provides the building blocks for charts, it does not inherently guarantee full WCAG compliance without additional effort from the developer. Charts are complex visual elements, and making them accessible requires careful consideration beyond just rendering them. Ensure color contrast. Provide a text-based alternative for the chart's content. This might be a simple alt attribute for a static image of the chart (if you're converting it) or, more commonly, a hidden data table. Ensure that interactive elements within your chart (like tooltips, clickable segments) are focusable and operable using only the keyboard (Tab, Enter, Space keys). This often requires custom implementation on top of Recharts' components.
+
+Scalability/Responsiveness: Charts should remain readable and usable when zoomed in (up to 200% without assistive technology, WCAG 1.4.4). `ResponsiveContainer` in Recharts helps with general responsiveness, but text and element sizing within the chart also need to be considered.
+
+
+
 
 ## Conclusion
 
