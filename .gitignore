@@ -1,7 +1,9 @@
 node_modules/
 
-dist/
-build/
+dist
+dist-ssr
+*.local
+build
 
 npm-debug.log*
 .npm/
