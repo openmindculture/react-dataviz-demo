@@ -1,6 +1,45 @@
 # React DataViz Demo
 
-**I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned.
+**I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned in July 2025.
+
+Abstract:
+- GitHub Copilot, much like Windsurf, is overhyped and not ready for production code generation.
+- GitHub Copilot undermines privacy protection by requesting unreasonably extensive permissions, including write access to all repositories.
+- IDEs are a matter of taste. VSCode is free to use and has a compact, but sometimes confusing UI. 
+- Jetbrains AI's strength are context actions like finding possible problems.
+- Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
+- AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
+
+## Tutorials vs. AI assistance
+
+### GitHub Copilot in Microsoft VisualStudio Code
+
+See branch `copilot-demo`:
+
+ - Copilot created boilerplate code in a nested sub-folder with the same project name.
+ - Copilot did not properly resolve peer dependencies.
+ - Copilot did not include the expected `@vitejs/plugin-react` dependency.
+ - Copilot did not create a `.gitingore` file.
+ - Copilot's instructions and its code did not create a working project.
+ - Even after obvious fixes, there is no working application running on localhost.
+ - Despite being unsuable, its low-quality output still counts against my subscription plan's "AI usage".
+ - Copilot urges the user to log in and requests unreasonably extensive permissions, including write access to all repositories.
+ - **Conclusion: Copilot, much like Windsurf, is overhyped and not ready for production. Copilot undermines privacy protection. Don't use Copilot!**
+
+#### Copilot-Generated Runtime Error
+
+The fixed version should have run on http://localhost:3000/
+after running
+    - `npm install`
+    - `npm run dev`
+
+After running npm run dev, no webpage was found for the web address: http://localhost:3000/ This localhost page can’t be found. The CJS build of Vite's Node API is deprecated.
+See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+
+Giving Copilot a last chance to fix its errors, commonplace advice included 
+troubleshooting steps like checking the terminal output, ensure you are using ESM for Vite config, delete `node_modules` and reinstall, check the node version or try a different port. The randomness of the suggestions reveals the assistant's cluelessness.
+
+#### Copilot-Generated DataViz Demo Project Structure
 
 Abstract:
 Copilot, much like Windsurf, is overhyped and not ready for production code generation.
@@ -68,6 +107,9 @@ Its first answer seemed lost forever, when I, after accepting to connect Google 
 Above the results sections, there's a three-dot menu containing a "branch from here" command that fails due to lacking permissions. Where is the expected Google AI's code sandbox online IDE view?
 
 It seems Google AI did not create the code in a windsurf vibe process, but gave us step-by-step instructions.
+
+- `npm create vite@latest my-recharts-demo -- --template react-ts`
+
 But it seems we didn't count on node.
 
 ```
@@ -117,7 +159,7 @@ Jetbrains AI's "find problems" action tell us?
 ### Testing and Linting
 
 - Why did no AI try test-driven development?
-- Why didn't it setup linters and code style configration?
+- Why didn't Copilot at least setup linters and code style configration?
 
 Copilot: Linters and code style tools (like ESLint and Prettier) are not always included by default in basic project scaffolding, especially when using AI assistants or some quickstart templates. Their setup often requires additional configuration and user preferences (e.g., specific rules, formatting style).
 
@@ -128,10 +170,22 @@ Copilot: Linters and code style tools (like ESLint and Prettier) are not always 
 We could use testing framework like Jest or Vitest
 and start by writing simple tests for your components or data logic before implementing them.
 
+**Jest** is a mature and comprehensive JavaScript testing framework, originally developed by Facebook, and it is widely adopted, especially in the React community. Jest is said to be heavier, slower, and more opiniated and used to lack support for ECMAScript Modules (ESM), the official, standardized module system for JavaScript, introduced in ES2015 (ES6), using `import` and `export` statements. Node's CommonJS (CJS) module system used `require` and `module.exports`.
+
+Vite's Architecture: Vite is built from the ground up to leverage native ESM. Both Vite and ESM work beautifully with TypeScript. While Cypress's internal architecture historically leaned more towards CommonJS, modern versions of Cypress support both TypeScript and ESM.
+
+**Vitest** is fast, lightweight, simple, and leverages Vite's Hot Module Replacement (HMR). Vitest handles ESM and TypeScript out-of-the-box with no additional configuration, a significant advantage for modern JavaScript projects. Vitest is designed to be highly compatible with Jest's API.
+
+Conclusion: it makes sense to choose Vitest in a modern Vite project.
+
 #### Cypress vs. Playwright
 
 What about end-to-end tests using Cypress?
 Cypress is a great choice for end-to-end (E2E) testing in React projects. It allows you to simulate real user interactions and verify that your app works as expected in the browser.
+
+Cypress is highly focused on web application testing and debugging. Cypress tests are written exclusively in JavaScript or TypeScript. Playwright supports all modern browser rendering engines on Windows, Linux, and macOS. Playwright has robust, built-in support for parallel test execution across multiple browsers, contexts, or even worker processes, significantly speeding up test suites. Cypress is renowned for its excellent developer experience. It offers a live, interactive test runner, real-time reloading, automatic waiting, and time-travel debugging.
+
+Conclusion: no need for Playwright unless we need cross-browser testing.
 
 ## Conclusion
 
@@ -199,4 +253,3 @@ export default tseslint.config([
   },
 ])
 ```
->>>>>>> aa8f6cb (add scaffold by create-vite react-ts)
