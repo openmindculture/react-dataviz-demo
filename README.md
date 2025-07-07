@@ -10,7 +10,11 @@ Abstract:
 - Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
 - AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
 
-## Tutorials vs. AI Assistance
+Sources: medium, [recharts.org](https://recharts.org/), ai.dev, DEV.to, [openmindculture](https://github.com/openmindculture), [jengostone](https://github.com/jengostonejs), Google Gemini, Jetbrains AI, Wikipedia, TODO create a GitHub page for interview-style documentation and sharing developer experience and link it in a one of the matching recent DEV posts
+
+![Jengo Mwamba Stone: to React Berlin article cover with React code snippets in front of Berlin Central station](public/react-berlin-jengo.jpg)
+
+## Interview with Jengo Stone, React Dev
 
 ALthough AI tools "are getting scary good at HTML/CSS/React" and AI tools can write tests, AI mostly benefits unexperienced developers lacking knowledge and experience. AI assistants often fail to understand assumptions or don't understand your requirements. AI assistants based on large-language models excel at processing text, but fail to understand existing code and generate production-level code without introducing bugs. Prompt-based image generation is likely to produce low-quality output. Instead of learning how to prompt better, people should focus on their strengths and use both AI and human experts when quality matters.
 
