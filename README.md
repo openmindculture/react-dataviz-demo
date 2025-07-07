@@ -10,9 +10,17 @@ Abstract:
 - Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
 - AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
 
-## Tutorials vs. AI assistance
+## Tutorials vs. AI Assistance
+
+ALthough AI tools "are getting scary good at HTML/CSS/React" and AI tools can write tests, AI mostly benefits unexperienced developers lacking knowledge and experience. AI assistants often fail to understand assumptions or don't understand your requirements. AI assistants based on large-language models excel at processing text, but fail to understand existing code and generate production-level code without introducing bugs. Prompt-based image generation is likely to produce low-quality output. Instead of learning how to prompt better, people should focus on their strengths and use both AI and human experts when quality matters.
+
+Even so-called project-wide understanding tools often rely on indexing and retrieval and can't keep a comprehensive, real-time map of the growing implicit context they create, making them prone to miss subtle, dynamic interactions or the intended architectural flow. AI is often excellent at generating the first 70% of a solution, i.e. the common patterns, the basic setup. But it falls short finishing the last 30%: the precise integration, the edge cases, the adherence to specific business logic, and the debugging. Worse, AI often struggles even with the initial, seemingly simple setups of modern applications like those scaffolded by create-vite react-ts.
+
+Peer and inter-file Dependencies, evolving templates and best practices, and implicit understanding of how development environments, bundlers, and compilers actually work together, is limited to pattern replication, not semantic validation against a live system. AI is missing last 30% not only in a project context, but for each and every task. That nvolves getting the configuration exactly right, ensuring all tooling integrates perfectly, and anticipating runtime environment specifics.
 
 ### GitHub Copilot in Microsoft VisualStudio Code
+
+GitHub Copilot is said to be very popular among solo developers, freelancers, students, and open-source contributors. Its core strength are real-time, context-aware code suggestions as you type. It can "sometimes produce generic or repetitive code that needs refinement" like in this project.
 
 See branch `copilot-demo`:
 
@@ -141,6 +149,29 @@ Proceeding with the installation instructions, ...
 
 See branch `gemini-demo`:
 
+...
+
+
+### Why AI Coding Assistants Struggle
+
+My developer experience with JetBrains AI, Copilot, and Windsurf seems to be very common and highlights the current limitations of AI code assistants, especially when dealing with real-world, complex development scenarios. LLMs are powerful pattern matchers, but they struggle with deep contextual understanding in the way a human developer does. They don't inherently understand business logic, architectural decisions made years ago, or the implicit knowledge of developer teams or communities. Global variables, hooks and actions might be too implicit to understand. Global CSS is notoriously difficult for even humans to manage because changes in one place can have unintended side effects everywhere. An AI sees a CSS rule but doesn't "know" which parts of the HTML it's supposed to affect or what the intended visual outcome is.
+
+Even tools like Windsurf that aim for "project-wide understanding" still rely on techniques like embedding and retrieval that can miss crucial nuances in a messy, older codebase.
+
+Modern TypeScript applications, especially those built with frameworks like React, Angular, or Vue, tend to be more modular, use clear component structures, and follow more consistent patterns (e.g., explicit imports, type definitions). This structure makes it much easier for an AI to parse, understand relationships, and generate coherent code. The code is often "cleaner" and closer to the patterns the AI was heavily trained on.
+
+Copilot and Windsurf generating "faulty code which is hard to fix" is a direct result of overconfidently not knowing what they don't know. The AI might provide a syntactically correct snippet, but it doesn't fit the actual logic, it uses non-existent methods (hallucinations), or it introduces subtle bugs because it misinterpreted the intent or the wider system. Current AI assistants primarily operate on static code. They don't run the code, observe its behavior, or interact with a debugger. They can't see stack traces, variable values at runtime, or how data flows through a live application.
+
+AI models are only as good as the data they're trained on. If the training data contains problematic, outdated, or insecure code, the AI might perpetuate those issues. Public codebases, while vast, also contain a lot of imperfect code.
+
+### Jetbrains AI
+
+Jetbrains AI can generate unit tests and find problems in existing code. It is supposed to help understand complex code sections and generate documentation.
+
+While it has failed to understand and explain legacy code in PHP and WordPress applications with global CSS, maybe it will perform much better analyzing and improving a modern AI-generated TypeScript application. JetBrains AI's Deep IDE Integration is a huge pro for modern code using type information, AST (Abstract Syntax Tree) analysis, and code structure.
+
+TODO
+
 ### Tutorials
 
 after reading and watching tutorials and playing with the AI-generated code above,
@@ -203,6 +234,8 @@ ReCharts is a component-based charting library built specifically for React and 
 You absolutely should use Recharts with TypeScript if you're building a React application where type safety, maintainability, and developer experience are important. Recharts provides its own type definitions, no need to install a separate types package. Your IDE will provide correct autocompletion for ReCharts components.
 
 #### ReCharts vs. HighCharts
+
+Recharts and Highcharts follow completely different approaches concerning their syntax and API, driven by their fundamental design philosophies. They are not compatible in terms of direct code reuse or API patterns.
 
 ReCharts components are simple, declarative, and highly composable, allowing you to mix and match different chart elements easily to create custom visualizations.
 
