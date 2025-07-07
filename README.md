@@ -1,6 +1,6 @@
 # React DataViz Demo
 
-**I want to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned.
+**I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned.
 
 ## Tutorials vs. AI assistance
 
@@ -50,13 +50,47 @@ troubleshooting steps like checking the terminal output, ensure you are using ES
 The Chart component can be customized by passing different data and configuration options. Refer to the documentation in the `src/components/Chart.tsx` file for more details on the available props.
 
 
-### Google Gemini Studio
+### Google AI Studio
 
-We can use Google Gemini Studio to create code in a windsurf vibe process. 
+We can use Google's Gemini-powered AI Studio and give it the same prompt that we gave to Copilot.
+
+> I want to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.
+
+Its first answer seemed lost forever, when I, after accepting to connect Google Drive, clicked on "Build" in the sidebar menu and then clicked "Chat" again. No code. Finally found the link (but no files) in my Drive. Apart from "Save to Drive", there's a "Share Prompt" link, both as small icons above the content, in the typical minimal material UI style lacking usability unless you are already familiar with the interface.
+
+Above the results sections, there's a three-dot menu containing a "branch from here" command that fails due to lacking permissions. Where is the expected Google AI's code sandbox online IDE view?
+
+It seems Google AI did not create the code in a windsurf vibe process, but gave us step-by-step instructions.
+But it seems we didn't count on node.
+
+```
+Need to install the following packages:
+create-vite@7.0.0
+Ok to proceed? (y) y
+
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'create-vite@7.0.0',
+npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+npm warn EBADENGINE   current: { node: 'v22.11.0', npm: '10.9.0' }
+npm warn EBADENGINE }
+```
+
+No problem, just try `nvm install node && nvm use node`. Now using node v24.2.0 (npm v1.4.2) and trying again.
+
+The create-vite wizard scaffolds a new project into a subfolder of the same name, just like Copilot had done. I will move everything back to the main directory and restore my personal README notes before proceeding with the same commands as before:
+
+- `npm install`
+- `npm run dev`
+
+Voilà! No apparent error, VITE v7.0.2 ready in 166ms running on http://localhost:5173/ showing a cute colorful logo animation titled "Vite + React: count is 0. Edit src/App.tsx and save to test HMR. Click an the Vite and React logos to learn more." Advantage: Google!
+
+The generated code even has an `eslint` configuration, but not `.gitignore` yet. To be fair, nobody said that I should commit the code at this stage yet. But let's add this file to prevent another useless commit of the `node_modules` directory. Copilot (invoked with Ctrl+I for inline chat) can create one, and so can Gemini, without antipatterns like a "Node modules" comment above the `node_modules/` line. Both are overly verbose, containing yarn, npm, and pnpm (Copilot) files in the same project, plus obscure details like `lerna-debug.log*` (Gemini) and `*.sublime-workspace` (Copilot), although I only mentioned VSCode, WebStorm, Mac, Windows, and Linux.
+
+Questions: is this a native node server? How can I start and stop it? Let's consult the generated README file! React + TypeScript + Vite: This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules. No server information. Control-C in the current terminal does the job.
+
+Proceeding with the installation instructions, ...
 
 See branch `gemini-demo`:
-
- - ...
 
 ### Tutorials
 
