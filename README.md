@@ -2,6 +2,11 @@
 
 **I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned.
 
+Abstract:
+Copilot, much like Windsurf, is overhyped and not ready for production code generation.
+Jetbrains AI's strength are context actions like finding possible problems.
+Google (Gemini) AI is not error-free either, but still the most useful.
+
 ## Tutorials vs. AI assistance
 
 ### GitHub Copilot in Microsoft VisualStudio Code
@@ -14,6 +19,8 @@ See branch `copilot-demo`:
  - Copilot did not create a `.gitingore` file.
  - Copilot's instructions and its code did not create a working project.
  - Even after obvious fixes, there is no working application running on localhost.
+ - Despite being unsuable, its low-quality output still counts against my subscription plan's "AI usage".
+ - **Conclusion: Copilot, much like Windsurf, is overhyped and not ready for production. Don't use Copilot!**
 
 #### Copilot-Generated Runtime Error
 
