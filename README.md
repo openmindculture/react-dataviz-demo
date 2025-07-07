@@ -147,10 +147,16 @@ Questions: is this a native node server? How can I start and stop it? Let's cons
 
 Proceeding with the installation instructions, ...
 
-See branch `gemini-demo`:
+See branch `gemini-demo` (merged)
 
-...
+#### Next Steps & Further Exploration
 
+> This simple project is a great foundation. Here's what you could do next:
+> - Fetch Data from an API: Replace the static financialData with data fetched using fetch or a library like axios.
+> - Explore Other Chart Types: Recharts offers Pie Charts, Radar Charts, Area Charts, and more.
+> - Add Interactivity: Create filters (e.g., dropdowns) to change the data displayed in the charts.
+> - Custom Tooltips: Customize the look and content of the tooltips for a richer user experience.
+> - Loading & Error States: Show a loading spinner while fetching data and an error message if the API call fails.
 
 ### Why AI Coding Assistants Struggle
 
