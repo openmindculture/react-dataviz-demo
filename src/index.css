@@ -54,6 +54,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.dashboard.dashboard--flex {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: unset;
+  width: auto;
+  max-width: 100%;
+  max-width: min(1200px, 100%);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
