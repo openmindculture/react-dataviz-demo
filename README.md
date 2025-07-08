@@ -24,6 +24,30 @@ https://openmindculture.github.io/react-dataviz-demo/
 
 Sources: medium, [recharts.org](https://recharts.org/), ai.dev, DEV.to, [openmindculture](https://github.com/openmindculture), [jengostone](https://github.com/jengostonejs), Google Gemini, Jetbrains AI, Wikipedia, TODO create a GitHub page for interview-style documentation and sharing developer experience and link it in a one of the matching recent DEV posts
 
+### Responsible AI Assistance
+
+As one of the main benefits of LLM-based AI chat seems to be the ELIZA-like dialog feature effectively forcing developers to "rubber duck" dialogs, we don't need to waste costly computation resources for this aspect. Alternatives:
+
+- (optionally use a secondary GitHub account)
+- always use merge requests / pull requests for new features
+- do a proper pull-request code review and inspect the changes
+
+- Use classic search engines for simple search requests.
+
+- Use official documentation, tutorials, and code template generators like `create-vite` to start a new project.
+
+- Use classic context-related code inspection and reformatting.
+
+- Use inline AI code assistance to generate new code.
+
+- Use AI context actions like "find problems".
+
+- Use AI to write unit tests, e.g. using Jest, Vitest, or PhpUnit.
+
+- Use common sense to write e2e tests e.g. using Cypress, CodeceptJS, or Playwright.
+
+
+
 ![Jengo Mwamba Stone: to React Berlin article cover with React code snippets in front of Berlin Central station](public/react-berlin-jengo.jpg)
 
 ## Interview with Jengo Stone, React Dev
