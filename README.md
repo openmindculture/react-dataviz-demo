@@ -211,12 +211,14 @@ TODO
 After reading and watching tutorials and playing with the AI-generated code above,
 this is the demo code created by a software developer in `human-demo`. To be fair, Gemini's commented step-by-step instructions were my first ReCharts tutorial, and I can't empty my mind or travel back in time to compare. But I've got questions and concerns.
 
-- Verify load time and accessibility using aXe/WAVE, Lighthouse, and keyboard navigation!
-- Verify responsive web design, add responsive container if necessary!
-- Hosting options for a related client project?
-- Accessible animation options?
-- Any other ideas for "interactivity"?
-- Explore Charting Options like pie charts, tree maps, what else?
+- [ ] Verify load time and accessibility using aXe/WAVE, Lighthouse, and keyboard navigation!
+- [ ] Verify responsive web design, add responsive container if necessary!
+- [ ] Hosting options for a related client project?
+- [ ] Accessible animation options?
+- [ ] Any other ideas for "interactivity"?
+- [ ] Explore charting options like pie charts, tree maps, what else?
+- - [ ] add text img layout
+- [ ] deploy to GitHub page
 
 However, I have consulted other tutorials and documentations, like
 
@@ -225,13 +227,13 @@ However, I have consulted other tutorials and documentations, like
 
 ### Synopsis, Synergies, Takeaways (so far)
 
-How do the generated examples differ?
-What can we learn about different strategies?
-What happens when we merge all branches? But why should we merge broken code that doesn't pass our quality guidelines?
+- [x] How do the generated examples differ?
+- [x] What can we learn about different strategies?
+- [x] What happens when we merge all branches? But why should we merge broken code that doesn't pass our quality guidelines?
 
-What is left of the different approaches?
-What are practices and common pitfalls?
-Jetbrains AI's "find problems" action tell us?
+- [x] What is left of the different approaches?
+- [ ] What are practices and common pitfalls?
+- [ ] Jetbrains AI's "find problems" action tell us?
 
 TODO: Jetbrains AI usage
 
