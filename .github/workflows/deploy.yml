@@ -17,14 +17,18 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: # <--- THIS IS CRITICAL
+      name: github-pages # <--- Ensure this exact name
+      url: ${{ steps.deployment.outputs.page_url }} # <--- Recommended for status links
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
@@ -34,6 +38,11 @@ jobs:
 
       - name: Build Project
         run: npm run build
+        env: # <--- SET THE CUSTOM ENV VARIABLE HERE
+          VITE_APP_GH_PAGES: 'true' # Set this to 'true' only in CI
+          # Vite automatically exposes variables prefixed with VITE_APP_ to the client-side code
+          # for use with import.meta.env.
+          # For vite.config.ts itself, process.env is needed as it's Node.js environment.
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
