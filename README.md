@@ -9,6 +9,13 @@ Abstract:
 - Jetbrains AI's strength are context actions like finding possible problems.
 - Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
 - AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
+- All AI assistants had a hit rate of about 50% helpful advice vs. 50% misleading advice or generated broken code.
+- ReCharts is simple at first sight, but highly inaccessible and unresponsive, even when using its ResponsiveContainer. Its default CSS and inline styles, combined with AI-generated boilerplate make this mess of a repository hard to fix.
+- Vite is good. React is okay. ReCharts isn't. AI assistance isn't. This archived project contains too many unfixed issues and antipatterns to serve as a best practice.
+
+## Disclaimer
+
+The following documentation and notes are unfinished and outdated. **Don't reuse code from this repository unless you know what you're doing!**
 
 ## Verify locally
 
@@ -44,7 +51,7 @@ If we don't commit dist and can't use this simple workflow, to configure GitHub 
 Despite documentation annd seemingly simple, straightforward configuration using existing default build actions, deplyoment keeps failing, when we insist on letting GitHub build the application again, as committing a deployed (working, tested, and ready for copying) artifact to the repository violates best practice in 2025 according common sense. Documentation, and different AI assistants, including GitHub Copilot, Google Gemini, and JetBrains AI, randomly mix helfpul and misleading advice. Here is a research and conversation excerpt after several hours of debugging:
 
 > [...]
-> The same errors despite the new configuration (see https://github.com/openmindculture/react-dataviz-demo ) and GitHub pages settings still the same that looks correct to me, but another build fail claiming that they failed to create deployment and cannot find any run with github.run by id, repeating the generic suggestion to ensure my GitHub Pages settings, Ensure GitHub Pages has been enabled. What is most likely causing this error and how to fix?
+> The same errors despite the new configuration (see https://github.com/openmindculture/react-dataviz-demo ) and GitHub pages settings still the same that looks correct to me, but another build fail claiming that they failed to create deployment and cannot find any run with `github.run` by id, repeating the generic suggestion to ensure my GitHub Pages settings, Ensure GitHub Pages has been enabled. What is most likely causing this error and how to fix?
  
 GitHub's generic error message is said to be known as a common point of frustration, repeating the generic suggestion to ensure my GitHub Pages settings, Ensure GitHub Pages has been enabled," despite your settings looking correct, points to a deeper, often transient or caching-related issue within GitHub's Pages service itself, or a very subtle misconfiguration that's hard to spot. [...] Everything in your deploy.yml and vite.config.ts looks correct for the setup we've discussed.
 
@@ -95,11 +102,9 @@ As one of the main benefits of LLM-based AI chat seems to be the ELIZA-like dial
 
 - Use common sense to write e2e tests e.g. using Cypress, CodeceptJS, or Playwright.
 
+## Notes
 
-
-![Jengo Mwamba Stone: to React Berlin article cover with React code snippets in front of Berlin Central station](public/react-berlin-jengo.jpg)
-
-## Interview with Jengo Stone, React Dev
+Disclaimer: the following text is **mostly AI-generated and might contain false claims and uncredited quotes from copyrighted sources. Verify before quoting!**
 
 ALthough AI tools "are getting scary good at HTML/CSS/React" and AI tools can write tests, AI mostly benefits unexperienced developers lacking knowledge and experience. AI assistants often fail to understand assumptions or don't understand your requirements. AI assistants based on large-language models excel at processing text, but fail to understand existing code and generate production-level code without introducing bugs. Prompt-based image generation is likely to produce low-quality output. Instead of learning how to prompt better, people should focus on their strengths and use both AI and human experts when quality matters.
 
