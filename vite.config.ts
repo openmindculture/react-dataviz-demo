@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/my-awesome-app/', // <--- IMPORTANT: Replace 'my-awesome-app' with your actual GitHub repository name
+  base: '/react-dataviz-demo/',
   build: {
     rollupOptions: {
       output: {
