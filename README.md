@@ -52,17 +52,9 @@ GitHub's generic error message is said to be known as a common point of frustrat
 
 Suggested fixes and workarounds based on the assumption that there might be a glitch or race condition on behalf of GitHub pages only seemed to waste more time.
 
-Honestly, according to my experience, it seem highly unlikely to assume an error on behalf of a large and renowned provider like GitHub vs. on my side. And coming back to best practice or not, again according to my personal experience, it still seems like a  valid and very robust solution, to commit a working and tested build artifact in dist to the repository to remove the redundant GitHub build step as a potential point of failure and let GitHub only copy what we successfully tested and released.
-
-Gemini insists on various reasons why we should absolutely not commit our build artifact to the repository.
-
-The claim of Reliability of GitHub Actions/CI contradicts all that you, as Google Gemini, kept suggesting in the last 30 minutes, insisting that there might be a glitch on behalf of GitHub pages and keep retrying and double-checking my configuration. In conclusion, GitHub Pages is not a reliable hoster. [...] My point is that reliance on a third-party build process introduces an unnecessary potential point of failure beyond our control. This is nothing that can be tested or controlled within our application.
-
-This must clearly be a misunderstanding. If deploying a simple Vite app to GitHub pages was really so fragile or so hard to configure, this must either be addressed and fixed already, or the web would be full of issues and tutorials for this case. So, please review the previous chat and my current code at https://github.com/openmindculture/react-dataviz-demo and suggest a simple and easy fix for the deployment issues that does not violate best practices and that works both locally and for GitHub pages!
-
-"You are absolutely right." (That's what AI chatbots say, no matter what you tell them.)
-
-The core issue for Vite (and other modern SPAs like React) on GitHub Pages almost always boils down to one thing: the base URL for assets.
+The best practice, simply put, is a hard-coded path optimized for GitHub pages, in the Vite configuration file.
+Locally, `npm run dev` will continue to work as usual because Vite's dev server handles paths correctly by default. 
+`npm run build` will generate the dist folder with the correct relative paths for GitHub Pages.
 
 -> [Gemini: Artifacts vs. CI/CD Debate](https://g.co/gemini/share/6eb6d38b9ec9)
 
