@@ -10,7 +10,58 @@ Abstract:
 - Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
 - AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
 
+## Verify locally
+
+Build and verify the built version locally, run
+- `npm run test` if available
+- `npm run lint` etc.
+- `npm run build` to build the application into `dist`
+- `npx serve dist` to verify the built application at
+- http://localhost:3000
+
+## Deploy to GitHub Pages
+
+Build the React App to the `build` directory:
+
+- `npm run build`
+
+Push to the `main` branch. We don't use a distinct `gh-pages` branch here. Once deployment is complete, your React app will be available at `https://<your-username>.github.io/<repository-name>/` so in this case:
+
+https://openmindculture.github.io/react-dataviz-demo/
+
+We should not commit build artifacts like the `dist` folder to our repository to avoid redundancies and inconsistencies. Instead, we should use GitHub actions to build and deploy this dist folder to GitHub Pages. This works similar to a Netlify deployment. GitHub has a workflow for deploying Vite apps.
+
+The most simple, stable, and best-practice way to deploy a Vite React app as a GitHub Page is to use the `actions/deploy-pages` GitHub Action along with Vite's configuration for GitHub Pages. Using `actions/deploy-pages` in `deploy.yml` is safe after a build step, and the implicit `github_token: ${{ secrets.GITHUB_TOKEN }}` absolutely suffices for deploying to GitHub Pages. We do not need to configure this token explicitly for `actions/deploy-pages` or other official GitHub Pages actions.
+
+To optimize the build file size, we can configure the `rollupOptions` in `vite.config.ts` explicitly to create manual chunks of `recharts` and react-related node modules.
+
+## Notes, TODOs, Takeaways, Documentation
+
 Sources: medium, [recharts.org](https://recharts.org/), ai.dev, DEV.to, [openmindculture](https://github.com/openmindculture), [jengostone](https://github.com/jengostonejs), Google Gemini, Jetbrains AI, Wikipedia, TODO create a GitHub page for interview-style documentation and sharing developer experience and link it in a one of the matching recent DEV posts
+
+### Responsible AI Assistance
+
+As one of the main benefits of LLM-based AI chat seems to be the ELIZA-like dialog feature effectively forcing developers to "rubber duck" dialogs, we don't need to waste costly computation resources for this aspect. Alternatives:
+
+- (optionally use a secondary GitHub account)
+- always use merge requests / pull requests for new features
+- do a proper pull-request code review and inspect the changes
+
+- Use classic search engines for simple search requests.
+
+- Use official documentation, tutorials, and code template generators like `create-vite` to start a new project.
+
+- Use classic context-related code inspection and reformatting.
+
+- Use inline AI code assistance to generate new code.
+
+- Use AI context actions like "find problems".
+
+- Use AI to write unit tests, e.g. using Jest, Vitest, or PhpUnit.
+
+- Use common sense to write e2e tests e.g. using Cypress, CodeceptJS, or Playwright.
+
+
 
 ![Jengo Mwamba Stone: to React Berlin article cover with React code snippets in front of Berlin Central station](public/react-berlin-jengo.jpg)
 
@@ -175,12 +226,14 @@ TODO
 After reading and watching tutorials and playing with the AI-generated code above,
 this is the demo code created by a software developer in `human-demo`. To be fair, Gemini's commented step-by-step instructions were my first ReCharts tutorial, and I can't empty my mind or travel back in time to compare. But I've got questions and concerns.
 
-- Verify load time and accessibility using aXe/WAVE, Lighthouse, and keyboard navigation!
-- Verify responsive web design, add responsive container if necessary!
-- Hosting options for a related client project?
-- Accessible animation options?
-- Any other ideas for "interactivity"?
-- Explore Charting Options like pie charts, tree maps, what else?
+- [ ] Verify load time and accessibility using aXe/WAVE, Lighthouse, and keyboard navigation!
+- [ ] Verify responsive web design, add responsive container if necessary!
+- [ ] Hosting options for a related client project?
+- [ ] Accessible animation options?
+- [ ] Any other ideas for "interactivity"?
+- [ ] Explore charting options like pie charts, tree maps, what else?
+- - [ ] add text img layout
+- [ ] deploy to GitHub page
 
 However, I have consulted other tutorials and documentations, like
 
@@ -189,13 +242,13 @@ However, I have consulted other tutorials and documentations, like
 
 ### Synopsis, Synergies, Takeaways (so far)
 
-How do the generated examples differ?
-What can we learn about different strategies?
-What happens when we merge all branches? But why should we merge broken code that doesn't pass our quality guidelines?
+- [x] How do the generated examples differ?
+- [x] What can we learn about different strategies?
+- [x] What happens when we merge all branches? But why should we merge broken code that doesn't pass our quality guidelines?
 
-What is left of the different approaches?
-What are practices and common pitfalls?
-Jetbrains AI's "find problems" action tell us?
+- [x] What is left of the different approaches?
+- [ ] What are practices and common pitfalls?
+- [ ] Jetbrains AI's "find problems" action tell us?
 
 TODO: Jetbrains AI usage
 
