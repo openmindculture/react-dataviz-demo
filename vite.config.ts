@@ -4,9 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [react()],
-    // Use a custom environment variable to distinguish GitHub Pages CI build
-    // `process.env.VITE_APP_GH_PAGES` will be 'true' in CI, undefined locally
-    base: process.env.VITE_APP_GH_PAGES === 'true' ? '/react-dataviz-demo/' : '/',
+    base: '/react-dataviz-demo/',
     build: {
         rollupOptions: {
             output: {
