@@ -12,7 +12,7 @@ permissions:
   pages: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     environment:
       name: github-pages # Use the 'github-pages' environment
@@ -36,8 +36,20 @@ jobs:
       - name: Build Project
         run: npm run build # this creates the dist folder
 
-      - name: Upload production artifact and deploy to Pages
-        id: deployment # Needed to capture the output URL
-        uses: actions/deploy-pages@v4
+      - name: Upload production artifact
+        uses: actions/upload-pages-artifact@v3 # THIS IS THE CRUCIAL ACTION FOR PAGES ARTIFACTS
         with:
-          artifact_path: ./dist # Specify the path to your built application (the 'dist' folder)
+          path: ./dist # Path to your built application (the 'dist' folder)
+          # The artifact name defaults to 'github-pages', which is required by deploy-pages@v4
+
+  deploy:
+    needs: build # This job depends on the 'build' job completing successfully
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages # Use the 'github-pages' environment
+      url: ${{ steps.deployment.outputs.page_url }} # Set the environment URL to the deployed page
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment # Needed to capture the output URL
+        uses: actions/deploy-pages@v4 # This action now consumes the 'github-pages' artifact
