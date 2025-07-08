@@ -33,7 +33,7 @@ When GitHub Copilot suggests a very simple GitHub Pages workflow using only acti
 
 We should not commit build artifacts like the `dist` folder to our repository to avoid redundancies and inconsistencies. Instead, we should use GitHub actions to build and deploy this dist folder to GitHub Pages. This works similar to a Netlify deployment. GitHub has a workflow for deploying Vite apps.
 
-The most simple, stable, and best-practice way to deploy a Vite React app as a GitHub Page is to use the `actions/deploy-pages` GitHub Action along with Vite's configuration for GitHub Pages. Using `actions/deploy-pages` in `deploy.yml` is safe after a build step, and the implicit `github_token: ${{ secrets.GITHUB_TOKEN }}` absolutely suffices for deploying to GitHub Pages. We do not need to configure this token explicitly for `actions/deploy-pages` or other official GitHub Pages actions. However, we should provide a `homepage` setting in `package.json` explicitly defining the implied default URL like `"homepage": "https://<username>.github.io/<repository-name>/"`.
+The most simple, stable, and best-practice way to deploy a Vite React app as a GitHub Page is to use the `actions/deploy-pages` GitHub Action along with Vite's configuration for GitHub Pages. Using `actions/deploy-pages` in `deploy.yml` is safe after a build step, and the implicit `github_token: ${{ secrets.GITHUB_TOKEN }}` absolutely suffices for deploying to GitHub Pages. We do not need to configure this token explicitly for `actions/deploy-pages` or other official GitHub Pages actions. While it was suggested that we should provide a `homepage` setting in `package.json` explicitly defining the implied default URL like `"homepage": "https://<username>.github.io/<repository-name>/"`, it turned out that's unecessary unless we want to run a local `gh-pages` npm package.
 
 ### GitHub Pages Configuration in Repository Settings
 
@@ -59,7 +59,9 @@ The best practice, simply put, is a hard-coded path optimized for GitHub pages, 
 Locally, `npm run dev` will continue to work as usual because Vite's dev server handles paths correctly by default. 
 `npm run build` will generate the dist folder with the correct relative paths for GitHub Pages.
 
-Furthermore, it only works after separating build and deployment into two distinct steps, Honestly, as Gemini suggested right away, but when I asked if the simpler JetBrains AI alternative will work, Gemini falsely agreed and proceeded with the broken approach. Again, a good tutorial would have saved time and computing resources.
+Only that's not true, and using a constant path in the vite config does break the local server on localhost:3000 again, contrary to the AI assistant's explicit claims that it wouldn't. **Sorry, but that's not "getting 70%" right, that's getting 70% wrong!**
+
+Furthermore, the GitHub build only works after separating build and deployment into two distinct steps, Honestly, as Gemini suggested right away, but when I asked if the simpler JetBrains AI alternative will work, Gemini falsely agreed and proceeded with the broken approach. Again, a good tutorial would have saved time and computing resources.
 
 -> [Gemini: Artifacts vs. CI/CD Debate](https://g.co/gemini/share/6eb6d38b9ec9)
 

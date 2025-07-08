@@ -34,7 +34,9 @@ jobs:
       # TODO run tests, skip for now
 
       - name: Build Project
-        run: npm run build # this creates the dist folder
+        # Set the VITE_APP_BASE environment variable for the build command
+        # Replace 'react-dataviz-demo' with your actual repository name
+        run: VITE_APP_BASE=/react-dataviz-demo/ npm run build
 
       - name: Upload production artifact
         uses: actions/upload-pages-artifact@v3 # THIS IS THE CRUCIAL ACTION FOR PAGES ARTIFACTS

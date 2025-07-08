@@ -1,10 +1,14 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// Use an environment variable for the base path.
+// Locally, process.env.VITE_APP_BASE will be undefined, so it defaults to '/'.
+// In CI, we will explicitly set VITE_APP_BASE.
+const BASE_URL = process.env.VITE_APP_BASE || '/';
+
 export default defineConfig({
     plugins: [react()],
-    base: '/react-dataviz-demo/',
+    base: BASE_URL,
     build: {
         rollupOptions: {
             output: {
