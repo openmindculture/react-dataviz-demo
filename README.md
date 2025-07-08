@@ -1,6 +1,6 @@
 # React DataViz Demo
 
-**I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills. Here is what I learned in July 2025.
+**I wanted to start a simple data visualization demo project using React with ReCharts and preferably TypeScript and TSX.** I also wanted to use evaluate AI assistants and learn new skills, like deploying a Vite React to GitHub pages. Here is what I learned in July 2025.
 
 Abstract:
 - GitHub Copilot, much like Windsurf, is overhyped and not ready for production code generation.
@@ -58,6 +58,8 @@ GitHub pages are usually served from a subdirectory.
 The best practice, simply put, is a hard-coded path optimized for GitHub pages, in the Vite configuration file.
 Locally, `npm run dev` will continue to work as usual because Vite's dev server handles paths correctly by default. 
 `npm run build` will generate the dist folder with the correct relative paths for GitHub Pages.
+
+Furthermore, it only works after separating build and deployment into two distinct steps, Honestly, as Gemini suggested right away, but when I asked if the simpler JetBrains AI alternative will work, Gemini falsely agreed and proceeded with the broken approach. Again, a good tutorial would have saved time and computing resources.
 
 -> [Gemini: Artifacts vs. CI/CD Debate](https://g.co/gemini/share/6eb6d38b9ec9)
 
