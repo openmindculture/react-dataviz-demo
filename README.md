@@ -54,6 +54,8 @@ Suggested fixes and workarounds:
 
 - Based on the assumption that there might be a glitch or race condition on behalf of GitHub pages: re-run the failed workflow immediately by clicking re-run (all) jobs, a button found on the detailed view page of the build job that failed. This button has an optional "Enable debug logging" checkbox to gather more information. However, the job keeps failing and no additional debug information can be found.
 
+- Likewise, we could try to switch to static branch-based file deployment, and then switch back to workflow deployment.
+
 ### Optimize Build File Size in Vite Configuration
 
 To optimize the build file size, we can configure the `rollupOptions` in `vite.config.ts` explicitly to create manual chunks of `recharts` and react-related node modules.
