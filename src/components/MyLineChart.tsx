@@ -40,8 +40,8 @@ const MyLineChart: React.FC = () => {
                 <Legend/>
 
                 {/* Line component represents a line in the chart */}
-                <Line type="monotone" dataKey="revenue" stroke="#8884d8" activeDot={{r: 8}}/>
-                <Line type="monotone" dataKey="expenses" stroke="#82ca9d"/>
+                <Line type="monotone" dataKey="revenue" stroke="#00429d" activeDot={{r: 8}}/>
+                <Line type="monotone" dataKey="expenses" stroke="#93003a"/>
             </LineChart>
         </ResponsiveContainer>
     );

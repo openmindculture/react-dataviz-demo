@@ -29,7 +29,7 @@ const MyBarChart: React.FC = () => {
                 <Tooltip/>
                 <Legend/>
                 {/* Bar component represents a bar in the chart */}
-                <Bar dataKey="profit" fill="#8884d8"/>
+                <Bar dataKey="profit" fill="#00429d"/>
             </BarChart>
         </ResponsiveContainer>
     );
