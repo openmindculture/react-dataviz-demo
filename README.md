@@ -365,12 +365,9 @@ ReCharts is not fully accessible out-of-the-box! While Recharts provides the bui
 
 Scalability/Responsiveness: Charts should remain readable and usable when zoomed in (up to 200% without assistive technology, WCAG 1.4.4). `ResponsiveContainer` in Recharts helps with general responsiveness, but text and element sizing within the chart also need to be considered.
 
-
-
-
 ## Conclusion
 
-We have verified that ReCharts can be used quickly, and Google AI served as a tutorial replacement, while Copilot wasted useless time.
+We have verified that ReCharts can be used quickly, but it does not provide responsive and accessible charts out of the box. Google AI served as a tutorial replacement, while Copilot wasted useless time. Google Gemini, JetBrains AI and JetBrains IDEA context actions provided helpful code and ideas, but also often pointed in the wrong direction or provided faulty code that did not work. Code assistance and answers kept causing confusion by contradicting earlier advice.
 
 ### AI on AI
 
