@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm run lint # TODO replace with test suite
+
+      - name: Build Project
+        run: npm run build
+
+      # TODO compare with Gemini suggestion and verify if we need the following step here
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # <--- This line tells the action to use the 'dist' folder
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

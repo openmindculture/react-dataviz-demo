@@ -10,6 +10,15 @@ Abstract:
 - Google (Gemini) AI is not error-free either. It is still the most useful AI assistant that I tested.
 - AI Studio did not create code but provided step-by-step instructions using create-vite react-ts.
 
+## Verify locally
+
+Build and verify the built version locally, run
+- `npm run test` if available
+- `npm run lint` etc.
+- `npm run build` to build the application into `dist`
+- `npx serve dist` to verify the built application at
+- http://localhost:3000
+
 ## Deploy to GitHub Pages
 
 Build the React App to the `build` directory:
@@ -19,6 +28,12 @@ Build the React App to the `build` directory:
 Push to the `main` branch. We don't use a distinct `gh-pages` branch here. Once deployment is complete, your React app will be available at `https://<your-username>.github.io/<repository-name>/` so in this case:
 
 https://openmindculture.github.io/react-dataviz-demo/
+
+We should not commit build artifacts like the `dist` folder to our repository to avoid redundancies and inconsistencies. Instead, we should use GitHub actions to build and deploy this dist folder to GitHub Pages. This works similar to a Netlify deployment. GitHub has a workflow for deploying Vite apps.
+
+The most simple, stable, and best-practice way to deploy a Vite React app as a GitHub Page is to use the `actions/deploy-pages` GitHub Action along with Vite's configuration for GitHub Pages. Using `actions/deploy-pages` in `deploy.yml` is safe after a build step, and the implicit `github_token: ${{ secrets.GITHUB_TOKEN }}` absolutely suffices for deploying to GitHub Pages. We do not need to configure this token explicitly for `actions/deploy-pages` or other official GitHub Pages actions.
+
+To optimize the build file size, we can configure the `rollupOptions` in `vite.config.ts` explicitly to create manual chunks of `recharts` and react-related node modules.
 
 ## Notes, TODOs, Takeaways, Documentation
 
