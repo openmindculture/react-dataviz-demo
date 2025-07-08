@@ -52,6 +52,9 @@ GitHub's generic error message is said to be known as a common point of frustrat
 
 Suggested fixes and workarounds based on the assumption that there might be a glitch or race condition on behalf of GitHub pages only seemed to waste more time.
 
+The core issue for Vite (and other modern SPAs like React) on GitHub Pages almost always boils down to one thing: the base URL for assets. While SPAs default to '/',
+GitHub pages are usually served from a subdirectory.
+
 The best practice, simply put, is a hard-coded path optimized for GitHub pages, in the Vite configuration file.
 Locally, `npm run dev` will continue to work as usual because Vite's dev server handles paths correctly by default. 
 `npm run build` will generate the dist folder with the correct relative paths for GitHub Pages.
