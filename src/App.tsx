@@ -7,10 +7,11 @@ function App() {
     return (
         <div className="app-container">
             <header>
-                <h1>React & Recharts Data Dashboard</h1>
+                <h1>React & Recharts Proof of Concept</h1>
                 <p>
                     Created using Vite, React, and Recharts.
                     Source code available on GitHub as a public archive at
+                    
                     <a href="https://github.com/openmindculture/react-dataviz-demo">github.com/openmindculture/react-dataviz-demo</a>
                 </p>
             </header>
