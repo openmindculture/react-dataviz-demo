@@ -30,13 +30,6 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # TODO compare with Gemini suggestion and verify if we need the following step here
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist' # <--- This line tells the action to use the 'dist' folder
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages
         with:
